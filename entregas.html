@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entregas de Fotografías - Why! · Eventos & Servicios Digitales</title>
+    <meta name="description" content="Accede a tus sesiones fotográficas completas. Galerías privadas con descarga ilimitada de alta resolución.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://whymedia.github.io/entregas.html">
+    <meta property="og:title" content="Entregas de Fotografías - Why! · Eventos & Servicios Digitales">
+    <meta property="og:description" content="Accede a tus sesiones fotográficas completas. Galerías privadas con descarga ilimitada de alta resolución.">
+    <meta property="og:image" content="https://whymedia.github.io/assets/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://whymedia.github.io/entregas.html">
+    <meta property="twitter:title" content="Entregas de Fotografías - Why! · Eventos & Servicios Digitales">
+    <meta property="twitter:description" content="Accede a tus sesiones fotográficas completas. Galerías privadas con descarga ilimitada de alta resolución.">
+    <meta property="twitter:image" content="https://whymedia.github.io/assets/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="shortcut icon" href="assets/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Entregas de Fotografías - Why!",
+        "description": "Accede a tus sesiones fotográficas completas. Galerías privadas con descarga ilimitada de alta resolución.",
+        "url": "https://whymedia.github.io/entregas.html",
+        "mainEntity": {
+            "@type": "LocalBusiness",
+            "name": "Why!",
+            "description": "Cobertura de eventos sociales y servicios digitales",
+            "telephone": "+50254113908",
+            "url": "https://whymedia.github.io",
+            "sameAs": [
+                "https://www.instagram.com/whycommunity_/",
+                "https://www.behance.net/WhyMediaGuatemala"
+            ]
+        }
+    }
+    </script>
+    
+    <style>
+        /* Estilos específicos para la página de entregas */
+        .entregas-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 60vh;
+            padding: 8rem 0 4rem;
+        }
+
+        .entregas-hero .hero-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .entregas {
+            background: var(--light-bg);
+        }
+
+        .entregas-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+
+        .entregas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .entrega-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .entrega-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .entrega-image {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .entrega-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .entrega-card:hover .entrega-image img {
+            transform: scale(1.08);
+        }
+
+        .entrega-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+            pointer-events: none;
+        }
+
+        .entrega-content {
+            padding: 2rem;
+        }
+
+        .entrega-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .entrega-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .entrega-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .entrega-type {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .entrega-date {
+            background: var(--light-bg);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .entrega-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .entregas-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .info-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .info-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .nav-link.active {
+            color: var(--accent-color);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .entregas-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                max-width: 100%;
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .entrega-card {
+                margin: 0;
+            }
+            
+            .entrega-image {
+                height: 300px;
+            }
+            
+            .entrega-content {
+                padding: 1.5rem;
+            }
+            
+            .entrega-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .entrega-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .entregas-info {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .info-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <img src="assets/Logowhy!.png" alt="Why!" class="logo-img">
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="index.html#portafolio" class="nav-link">Portafolio</a></li>
+                <li><a href="index.html#precios" class="nav-link">Precios</a></li>
+                <li><a href="entregas.html" class="nav-link active">Entregas</a></li>
+                <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+                <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero entregas-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Entregas de Fotografías</h1>
+                <p class="hero-subtitle">Accede a tus sesiones fotográficas completas con descarga ilimitada en alta resolución</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entregas Section -->
+    <section class="entregas" id="entregas">
+        <div class="container">
+            <h2 class="section-title">Galerías Disponibles</h2>
+            <p class="entregas-subtitle">Selecciona la sesión que deseas ver y descargar</p>
+            <div class="entregas-grid">
+                <div class="entrega-card">
+                    <div class="entrega-image">
+                        <img src="entregas/kl.png" alt="Sesión de Cumpleaños - 1 Año Ethan" loading="lazy">
+                    </div>
+                    <div class="entrega-content">
+                        <h3>Sesión de Cumpleaños</h3>
+                        <p class="entrega-description">Celebración del primer año de Ethan - Fotografías profesionales de este momento especial capturadas con amor y dedicación</p>
+                        <div class="entrega-meta">
+                            <span class="entrega-type">Cumpleaños</span>
+                            <span class="entrega-date">5 de octubre de 2025</span>
+                        </div>
+                        <a href="https://edgarortiz.pixieset.com/1anoethan/" 
+                           class="btn btn-primary entrega-btn" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            Ver Galería Completa
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Información adicional -->
+            <div class="entregas-info">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h4>Descarga Ilimitada</h4>
+                    <p>Todas las fotografías están disponibles para descarga en alta resolución sin límites de cantidad o tiempo</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h4>Galería Privada</h4>
+                    <p>Cada sesión tiene su propia galería privada y personalizada para compartir de forma segura con familiares y amigos</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h4>Acceso Permanente</h4>
+                    <p>Las galerías permanecen disponibles de forma permanente para futuras descargas y recuerdos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-final">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Necesitas ayuda con tu galería?</h2>
+                <p>Si tienes problemas para acceder o necesitas asistencia, contáctanos</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/50254113908?text=Hola%2C%20necesito%20ayuda%20con%20mi%20galería%20de%20fotografías&utm_source=entregas&utm_medium=whatsapp&utm_campaign=soporte" 
+                       class="btn btn-primary" 
+                       aria-label="Contactar por WhatsApp">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                        </svg>
+                        Contactar Soporte
+                    </a>
+                    <a href="index.html" 
+                       class="btn btn-secondary">
+                        Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/Logowhy!.png" alt="Why!" class="footer-logo">
+                    <p>Eventos inolvidables. Soluciones digitales claras.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://wa.me/50254113908?utm_source=entregas&utm_medium=footer&utm_campaign=whatsapp" 
+                       aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/whycommunity_/?utm_source=entregas&utm_medium=footer&utm_campaign=instagram" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.behance.net/WhyMediaGuatemala?utm_source=entregas&utm_medium=footer&utm_campaign=behance" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       aria-label="Behance">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 2.118 5.375 4.563.317 1.725.442 2.562.442 4.032h-8.834c.094.638.687 2.169 2.601 2.169 1.247 0 2.034-.932 2.034-2.091 0-.979-.753-1.448-1.493-1.715l-1.138-.377c-1.247-.415-1.491-1.242-1.491-2.151 0-1.7 1.187-2.874 2.834-2.874 1.653 0 2.647 1.116 2.647 2.92h-2.59c0-1.043-.649-1.622-1.491-1.622-.9 0-1.491.74-1.491 1.622 0 .724.384 1.154 1.2 1.154.24 0 .49-.05.701-.149l.701-.149c.9-.3 1.2-.9 1.2-1.5 0-1.7-1.187-2.874-2.834-2.874-1.653 0-2.647 1.116-2.647 2.92h2.59c0 1.7-1.187 2.874-2.834 2.874z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Why! · Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/50254113908?text=Hola%2C%20necesito%20ayuda%20con%20mi%20galería%20de%20fotografías&utm_source=entregas&utm_medium=float&utm_campaign=whatsapp" 
+       class="whatsapp-float" 
+       aria-label="Escribir por WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>
